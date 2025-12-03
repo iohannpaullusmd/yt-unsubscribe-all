@@ -1,0 +1,12 @@
+{
+  "name": "youtube-unsubscriber",
+  "version": "1.0.0",
+  "description": "Automated YouTube Unsubscriber using Playwright in GitHub Actions",
+  "main": "unsubscribe.js",
+  "scripts": {
+    "start": "node unsubscribe.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.1"
+  }
+}
