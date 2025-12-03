@@ -104,6 +104,7 @@ async function bulkUnsubscribe(page) {
 
     let deletedCount = 0;
 
+    console.log(allButtons);
     // Loop through the fixed list of buttons
     for (const [index, subscribeButtonElement] of allButtons.entries()) {
         const itemNumber = index + 1;
