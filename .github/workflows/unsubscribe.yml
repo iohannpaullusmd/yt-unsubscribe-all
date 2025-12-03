@@ -1,9 +1,7 @@
 name: YouTube Bulk Unsubscriber
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  # Run automatically once a week on Sunday at midnight UTC
   schedule:
     - cron: '0 0 * * 0'
 
@@ -23,13 +21,10 @@ jobs:
         run: npm install
 
       - name: Install Playwright Browsers
-        # Changing from 'npx playwright install chromium' to the more general 'npx playwright install'
-        # as suggested by the error message, to ensure all necessary paths are set up.
-        run: npx playwright install
+        run: npx playwright install chromium
 
       - name: Run Playwright Unsubscribe Script
         run: npm start
         env:
-          # Securely pass credentials from GitHub Secrets
           YT_EMAIL: ${{ secrets.YT_EMAIL }}
           YT_PASSWORD: ${{ secrets.YT_PASSWORD }}
