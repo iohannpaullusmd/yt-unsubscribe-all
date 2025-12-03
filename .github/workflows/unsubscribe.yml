@@ -23,7 +23,9 @@ jobs:
         run: npm install
 
       - name: Install Playwright Browsers
-        run: npx playwright install chromium
+        # Changing from 'npx playwright install chromium' to the more general 'npx playwright install'
+        # as suggested by the error message, to ensure all necessary paths are set up.
+        run: npx playwright install
 
       - name: Run Playwright Unsubscribe Script
         run: npm start
