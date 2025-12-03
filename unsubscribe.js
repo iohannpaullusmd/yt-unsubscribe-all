@@ -94,7 +94,7 @@ async function bulkUnsubscribe(page) {
 
     // Capture the static list of all buttons now that the page is fully loaded.
     const allButtons = await page.locator(PRIMARY_BUTTON_SELECTOR).all();
-    
+    console.log(page);
     if (allButtons.length === 0) {
         console.log("No 'Subscribed' buttons found. Check login or ensure subscriptions exist.");
         return;
