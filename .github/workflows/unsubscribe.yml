@@ -1,0 +1,30 @@
+name: YouTube Bulk Unsubscriber
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Run automatically once a week on Sunday at midnight UTC
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  unsubscribe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Playwright Unsubscribe Script
+        run: npm start
+        env:
+          # Securely pass credentials from GitHub Secrets
+          YT_EMAIL: ${{ secrets.YT_EMAIL }}
+          YT_PASSWORD: ${{ secrets.YT_PASSWORD }}
